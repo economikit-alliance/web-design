@@ -1,5 +1,5 @@
 
-    const colors = ['','#506ced','#eb4778','#ebcd47']; 
+    const colors = ['#47ebbf','#506ced','#eb4778','#ebcd47']; 
 
     let r = document.querySelector(':root');
     const logoHTML = document.getElementById('logoHTML');
