@@ -5,14 +5,14 @@
 #text-ek{
     position: fixed;
     top: 70px;
-    left: 20px;
+    left: 2vw;
     z-index: 2;
 }
 
 #logoHTML{
     position: fixed;
     top: 0px;
-    left: 30px;
+    left: calc(2vw + 10px);
 }
 
 svg{
