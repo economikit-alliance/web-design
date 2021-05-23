@@ -1,3 +1,5 @@
+{{ define "main" }}
+
 {{ with .Site.GetPage "/homepage/01-intro.md" }}<section id="Intro">{{ .Content }}</section>{{ end }}
 
 {{ with .Site.GetPage "/homepage/02-how-we-work.md" }}<section id="How-we-work">{{ .Content }}</section>{{ end }}
@@ -97,3 +99,5 @@
   </h4>
 
 </section>
+
+{{ end }}
