@@ -29,5 +29,12 @@
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
     "rollup": "^2.50.6"
+  },
+  "dependencies": {
+    "d3-color": "^2.0.0",
+    "d3-dispatch": "^2.0.0",
+    "d3-selection": "^2.0.0",
+    "d3-timer": "^2.0.0",
+    "d3-transition": "^2.0.0"
   }
 }
