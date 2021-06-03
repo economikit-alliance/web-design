@@ -64,7 +64,7 @@ import { select } from 'd3-selection'
             rPointsArray[rA].push(rPoints[r]);
         }
     }
-        randomize = function(){ 
+        window.randomize = function(){
             shuffle(colors);
             r.style.setProperty('--c1', colors[0]);
             r.style.setProperty('--c2', colors[1]);
@@ -163,9 +163,9 @@ import { select } from 'd3-selection'
         const textLogo = document.getElementById('text1451');
         const header = document.getElementById('top');
 
-        logoTextVisibility = function (){
+        function logoTextVisibility (){
             textLogo.classList.toggle('invisible');
-        }; 
+        };
 
         window.onscroll = function (e) {  
             if(window.scrollY < 10){
