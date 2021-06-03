@@ -25,6 +25,16 @@ svg{
 }
 .svg1{stroke: black}
 
+.mini{
+    transform: scale(100%) translate(-40px, -10px);
+    transition: transform 500ms 200ms;
+}
+
+.maxi{
+    transform: scale(100%);
+    transition: transform 300ms 200ms;
+}
+
 #path1560{
     fill: var(--c2) !important;
 }
@@ -54,7 +64,7 @@ svg{
 }
 
 #text1451{
-    transition: opacity 800ms 200ms;
+    transition: opacity 300ms 400ms;
 }
 
 #e { 
@@ -65,3 +75,10 @@ svg{
     .stopG1_2 { stop-color: var(--c2); }
 
 #i1 { fill: var(--c1); }
+
+@media (max-width: 1024px) {
+    .mini{
+        transform: scale(80%) translate(-75px, -20px);
+        transition: transform 500ms 200ms;
+    }
+}

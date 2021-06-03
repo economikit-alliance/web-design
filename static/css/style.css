@@ -79,7 +79,7 @@ main section{
 
 #bgIntro{
     background-color: var(--c3);
-    transition: background-color 300ms;
+    transition: background-color 1000ms;
     position: absolute;
     top: 0;
     left: 0;
@@ -102,8 +102,12 @@ main section{
     filter: invert(100%);
 }
 
+h1{
+    opacity: 0;
+}
+
 h2{
-    padding-top: 10vh;
+    padding-top: 14vh;
     font-family: 'Karrik', sans-serif;
     font-size: clamp(1.6em, 4.5vh, 2.9em); 
     line-height: 1.2em;
@@ -136,14 +140,14 @@ a:hover{
     text-shadow: 0px 0px 3px rgba(0,0,0,0.3);
 }
 
-nav{
+#main-menu{
     position: fixed;
     bottom: 0.5em;
     right: 0.5em;
     margin-left: 0.5em;
 }
 
-nav a{
+#main-menu a{
     font-size: clamp(1em, 2.2vh, 1.5em); 
     margin-left: 1vw;
     line-height: 2.6em;
