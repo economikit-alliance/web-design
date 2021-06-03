@@ -1,0 +1,23 @@
+{
+  "name": "economikit-website-theme",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Economikit.org, built on Hugo",
+  "main": "bundle.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/economikit-alliance/web-design.git"
+  },
+  "keywords": [
+    "Economikit"
+  ],
+  "author": "EK team",
+  "license": "SEE LICENSE IN CC-BY-SA.txt",
+  "bugs": {
+    "url": "https://github.com/economikit-alliance/web-design/issues"
+  },
+  "homepage": "https://github.com/economikit-alliance/web-design#readme"
+}
