@@ -1,3 +1,4 @@
+import { select } from 'd3-selection'
 
     const colors = ['#47ebbf','#506ced','#eb4778','#ebcd47']; 
 
@@ -88,7 +89,7 @@
 
             path1ID3.setAttribute('d', path1InstructionsNext);
             
-            d3.select('#path1ID3')
+            select('#path1ID3')
             .attr('d', path1Instructions)
             .transition()
             .duration(2000)
@@ -112,8 +113,8 @@
                 ${x1},${y1}`;
 
             path2ID3.setAttribute('d', path2InstructionsNext);
-            d3.select('#path2ID3').attr('d', path2Instructions);  
-            d3.select('#path2ID3')
+            select('#path2ID3').attr('d', path2Instructions);
+            select('#path2ID3')
             .attr('d', path2Instructions)
             .transition()
             .duration(2000)
