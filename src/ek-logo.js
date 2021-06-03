@@ -168,22 +168,27 @@ import { select } from 'd3-selection'
         };
 
         window.onscroll = function (e) {  
-            if(window.scrollY < 10){
+            if(window.scrollY < 30){
                 textLogo.classList.remove('invisible');
+                logo.classList.remove('mini');
+                logo.classList.add('maxi');
                 textLogo.classList.add('visible');
-            }else if(window.scrollY > 10){
+            }else if(window.scrollY > 30){
                 textLogo.classList.remove('visible');
+                logo.classList.add('mini');
+                logo.classList.remove('maxi');
                 textLogo.classList.add('invisible');
             }  
         } 
 
-
+        /*
         header.onmouseenter = function(){
             logoTextVisibility();
         };
         header.onmouseleave = function(){
             logoTextVisibility();
         };
+        */
 
         function shuffle(array) {
             let currentIndex = array.length, temporaryValue, randomIndex;

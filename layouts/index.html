@@ -4,7 +4,7 @@
 
 {{ with .Site.GetPage "/homepage/02-how-we-work.md" }}<section id="How-we-work">{{ .Content }}</section>{{ end }}
 
-{{ with .Site.GetPage "/homepage/03-what-we-are-creating.md" }}<section id="What-we-are-creating">{{ .Content }}</section>{{ end }}
+{{ with .Site.GetPage "/homepage/03-what-we-are-creating.md" }}<section id="What-we-are-creating">{{ .Content }}
 
 <nav id="projects">
   <a href="#ValueFlows-GraphQL">
@@ -31,6 +31,8 @@
       <img src="" alt="">
   </a>
 </nav>
+
+</section>{{ end }}
 
 <section id="ValueFlows-GraphQL">
 
