@@ -4,14 +4,14 @@
 
 #text-ek{
     position: fixed;
-    top: 70px;
+    top: 80px;
     left: 2vw;
     z-index: 2;
 }
 
 #logoHTML{
     position: fixed;
-    top: 0px;
+    top: 10px;
     left: calc(2vw + 10px);
 }
 
