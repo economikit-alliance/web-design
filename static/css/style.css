@@ -102,6 +102,34 @@ main section{
     filter: invert(100%);
 }
 
+#external-links{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px;
+    width: 240px;
+    justify-items: center;
+    align-items: center;
+}
+
+.contact{
+    margin-top: 1em;
+    margin-left: 1em;
+    display: inline-block;
+}
+
+.icon-footer{
+    width: 100%;
+    transition: filter 200ms;
+}
+
+.icon-footer:hover{
+    filter: invert(88%);
+}
+
+.logo-small{
+    display: none;
+}
+
 h1{
     opacity: 0;
 }
