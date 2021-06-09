@@ -134,14 +134,14 @@ h1{
     opacity: 0;
 }
 
-h2{
+#Intro h2{
     padding-top: 10vh;
     font-family: 'Karrik', sans-serif;
     font-size: clamp(1.6em, 4.5vh, 2.9em); 
     line-height: 1.2em;
 }
 
-h3{
+.home-title h3{
     font-family: 'Karrik', sans-serif;
     font-size: 1.8em;
     line-height: 1.3em;
@@ -149,7 +149,7 @@ h3{
     text-align: center;
 }
 
-h4{
+.home-title h4{
     font-family: 'Rosario', sans-serif;
     font-size: 1.2em;
     line-height: 1.3em;
