@@ -78,7 +78,7 @@ svg{
 
 @media (max-width: 1024px) {
     .mini{
-        transform: scale(80%) translate(-60px, -30px);
+        transform: scale(80%) translate(-55px, -30px);
         transition: transform 500ms 200ms;
     }
 }
