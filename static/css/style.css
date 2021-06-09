@@ -136,11 +136,33 @@ main section{
     display: none;
 }
 
-h1{
+#header-fallback{
     opacity: 0;
 }
 
+h1{
+    font-family: 'Karrik', sans-serif;
+    font-size: 3em;  
+}
+
+#content h2,h3{
+    margin-top: 3em;
+    line-height: 1.2em;
+}
+
+#content{
+    font-size: 1.2em;
+    line-height: 1.3em;
+}
+
+#meta{
+    position: absolute;
+    right: 10px;
+    top: 0;
+}
+
 #Intro h2{
+    margin-top: 0em !important;
     padding-top: 8vh;
     font-family: 'Karrik', sans-serif;
     font-size: clamp(1.6em, 4.5vh, 2.9em); 
@@ -148,6 +170,7 @@ h1{
 }
 
 .home-title h3{
+    margin-top: 0em !important;
     font-family: 'Karrik', sans-serif;
     font-size: 1.8em;
     line-height: 1.3em;
@@ -156,6 +179,7 @@ h1{
 }
 
 .home-title h4{
+    margin-top: 0em !important;
     font-family: 'Rosario', sans-serif;
     font-size: 1.2em;
     line-height: 1.3em;
