@@ -135,7 +135,7 @@ h1{
 }
 
 h2{
-    padding-top: 14vh;
+    padding-top: 10vh;
     font-family: 'Karrik', sans-serif;
     font-size: clamp(1.6em, 4.5vh, 2.9em); 
     line-height: 1.2em;
