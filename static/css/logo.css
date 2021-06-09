@@ -26,7 +26,7 @@ svg{
 .svg1{stroke: black}
 
 .mini{
-    transform: scale(100%) translate(-40px, -10px);
+    transform: scale(100%) translate(-30px, -5px);
     transition: transform 500ms 200ms;
 }
 
@@ -78,7 +78,7 @@ svg{
 
 @media (max-width: 1024px) {
     .mini{
-        transform: scale(80%) translate(-70px, -25px);
+        transform: scale(80%) translate(-60px, -30px);
         transition: transform 500ms 200ms;
     }
 }
