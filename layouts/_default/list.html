@@ -1,15 +1,23 @@
 {{ define "main" }}
-<main>
-    <article>
+<div id="bgList"></div>
+<main id="wrapperList">
+    <article id ="headerList">
         <header>
             <h1>{{ .Title }}</h1>
         </header>
         {{ .Content }}
     </article>
-    <ul>
+    <ul id="postList">
         {{ range .Data.Pages }}
-        <li>
-            <a href="{{ .RelPermalink }}">{{ .Date.Format "Mon Jan 2, 2006" }} | {{ .Title }}</a>
+        <li id="toPost">
+            <div id="postYear">{{ .Date.Format "2006" }}</div>
+            <div id="dateANDtagsContainer">
+                <div id="postDate">{{ .Date.Format "Jan 2" }}</div>
+                <ul id="postTags">
+                    <a>context</a><a>questions</a><a>example_tag</a> <a>fourth_tag</a><a>max_five_tags</a>
+                </ul>
+            </div>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
         </li>
         {{ end }}
     </ul>
