@@ -14,17 +14,22 @@
             <div id="dateANDtagsContainer">
                 <div id="postDate">{{ .Date.Format "Jan 2" }}</div>
                 <ul id="postTags">
-                    <a>context</a><a>questions</a><a>example_tag</a> <a>fourth_tag</a><a>max_five_tags</a>
+                    {{ range (.GetTerms "tags") }}
+                        <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+                    {{ end }}
                 </ul>
             </div>
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <a id="postTitle" href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <section id="postDescription">
+                {{ .Description }}
+            </section>
         </li>
         {{ end }}
     </ul>
 </main>
 <style>
     footer{
-        background-color:transparent;
+        background-color: var(--c2);
     }
 </style>
 {{ end }}
