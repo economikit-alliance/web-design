@@ -306,7 +306,7 @@ footer{
     margin-bottom: 2em;
 }
 
-#toPost a{
+#postTitle{
     grid-column: 2;
     grid-row: 3;
     font-size: 2em;
@@ -374,7 +374,7 @@ footer{
     list-style: none;
 }
 
-#postTags a{
+.postTag{
     text-decoration: none;
     border: 0px solid transparent;
     grid-column: auto;
@@ -383,7 +383,7 @@ footer{
     color: black;
     width: max-content;
     height: 20px;
-    font-size: 0.9em;
+    font-size: 0.9em !important;
     justify-self: center;
     text-align: center;
     padding: 0.3em 0.9em 0.4em 0.9em;
@@ -392,9 +392,12 @@ footer{
     border-radius: 2em;
     transition: background-color 600ms, color 200ms;
     margin-left: 1vw;
+    margin-bottom: 10px;
+    display: block;
+    text-align: right;
 }
 
-#postTags a:hover{
+.postTag:hover{
     color: var(--c1);
     background-color: transparent;
     text-shadow: 0px 0px 4px rgba(0,0,0,0.5); 
@@ -406,7 +409,7 @@ footer{
 
 @media (max-width: 720px) {
 
-    #toPost a{
+    #postTitle{
         font-size: 1.5em;
     }
 

@@ -24,12 +24,12 @@
     {{ with .Params.tags }}
     <ul id="tags">
       {{ range . }}
-        <li> <a href="{{ "tags/" | relURL }}{{ . | urlize }}">{{ . }}</a> </li>
+        <li> <a class="postTag" href="{{ "tags/" | relURL }}{{ . | urlize }}">{{ . }}</a> </li>
       {{ end }}
     </ul>
     {{ end }}
     </div>
-    <div>
+    <div id="previousAndNextPosts">
         {{ with .PrevInSection }}
           <a class="previous" href="{{.RelPermalink}}"> {{.Title}}</a>
         {{ end }}
