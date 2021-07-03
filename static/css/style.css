@@ -179,9 +179,14 @@ h1{
     text-align: right;
 }
 
-#tags li{
+#singleTags li{
     list-style-type: none;
 } 
+
+#singleTags{
+    display: grid;
+    justify-items: end;
+}
 
 #date{
     margin-bottom: 10px !important;

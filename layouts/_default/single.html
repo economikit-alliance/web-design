@@ -22,7 +22,7 @@
     </ul>
     {{ end }}
     {{ with .Params.tags }}
-    <ul id="tags">
+    <ul id="singleTags">
       {{ range . }}
         <li> <a class="postTag" href="{{ "tags/" | relURL }}{{ . | urlize }}">{{ . }}</a> </li>
       {{ end }}
