@@ -1,5 +1,9 @@
 <script>
-  import("{{ "init.js" | relURL }}");
+  {{ if eq $.Type "home" }}
+    import("{{ "init-home.js" | relURL }}");
+  {{ else }}
+    import("{{ "init.js" | relURL }}");
+  {{ end }}
   window.supportsDynamicImport = true;
 </script>
 <script>
@@ -7,7 +11,11 @@
     const systemJsLoaderTag = document.createElement('script');
     systemJsLoaderTag.src = '{{ "systemjs/systemjs-2.0.0.js" | relURL }}';
     systemJsLoaderTag.addEventListener('load', function () {
-      System.import("{{ "nomodule/init.js" | relURL }}");
+      {{ if eq $.Type "home" }}
+        System.import("{{ "nomodule/init-home.js" | relURL }}");
+      {{ else }}
+        System.import("{{ "nomodule/init.js" | relURL }}");
+      {{ end }}
     });
     document.head.appendChild(systemJsLoaderTag);
   }
