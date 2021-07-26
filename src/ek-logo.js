@@ -7,6 +7,7 @@ import { select } from 'd3-selection'
     let logo = [];
     let logoG = [];
         logo = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        logo.setAttribute('id', 'logo-graphic');
         logo.setAttribute('width', '250');
         logo.setAttribute('height', '200');
         logo.setAttribute('viewBox', '0 0 250 200');
@@ -156,36 +157,6 @@ import { select } from 'd3-selection'
         logo.appendChild(i1); 
         
         logoHTML.appendChild(logo);
-
-        const textLogo = document.getElementById('text1451');
-        const header = document.getElementById('top');
-
-        function logoTextVisibility (){
-            textLogo.classList.toggle('invisible');
-        };
-
-        window.onscroll = function (e) {  
-            if(window.scrollY < 30){
-                textLogo.classList.remove('invisible');
-                logo.classList.remove('mini');
-                logo.classList.add('maxi');
-                textLogo.classList.add('visible');
-            }else if(window.scrollY > 30){
-                textLogo.classList.remove('visible');
-                logo.classList.add('mini');
-                logo.classList.remove('maxi');
-                textLogo.classList.add('invisible');
-            }  
-        } 
-
-        /*
-        header.onmouseenter = function(){
-            logoTextVisibility();
-        };
-        header.onmouseleave = function(){
-            logoTextVisibility();
-        };
-        */
 
         function shuffle(array) {
             let currentIndex = array.length, temporaryValue, randomIndex;
