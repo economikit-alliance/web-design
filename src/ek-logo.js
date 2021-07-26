@@ -64,7 +64,7 @@ import { select } from 'd3-selection'
             rPointsArray[rA].push(rPoints[r]);
         }
     }
-        window.randomize = function(){
+        window.randomizeEKLogo = function(){
             shuffle(colors);
             r.style.setProperty('--c1', colors[0]);
             r.style.setProperty('--c2', colors[1]);
@@ -148,10 +148,7 @@ import { select } from 'd3-selection'
                     i1.setAttribute('height', '8.8');
                     i1.setAttribute('fill', 'var(--c1)');
 
-        }; randomize();
-
-        //reload logo and colors every 12 seconds (synced with animation)
-        setInterval(() => {randomize(); }, 18000);
+        }; randomizeEKLogo();
 
         logo.appendChild(path1ID3);
         logo.appendChild(path2ID3);
