@@ -150,10 +150,6 @@ main section{
     display: none;
 }
 
-#header-fallback{
-    opacity: 0;
-}
-
 h1{
     font-family: 'Karrik', sans-serif;
     font-size: 2.5em;
@@ -400,6 +396,18 @@ footer{
 .visible{ opacity: 1; }
 
 .invisible{ opacity: 0; }
+
+.visuallyhidden {
+  border: 0;
+  clip-path: inset(50%);
+  display: inline-block;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  width: 1px;
+  white-space: nowrap;
+}
 
 @media (max-width: 720px) {
 
