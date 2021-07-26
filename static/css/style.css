@@ -348,16 +348,6 @@ footer{
     grid-row: 4;
     margin-top: 0.5em;
     min-height: 3em;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 500ms;
-}
-
-#postTitle:hover ~ #postDescription{
-    display: block;
-    opacity: 1;
-    height: max-content;
-    pointer-events: all;
 }
 
 #postTags{
