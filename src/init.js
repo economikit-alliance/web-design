@@ -1,7 +1,9 @@
 import './main'
 
-//reload logo and colors every 12 seconds (synced with animation)
-setInterval(() => {randomizeEKLogo(); }, 18000);
+// init, then reload logo and colors periodically (synced with animation)
+function initEKLogo() { randomizeEKLogo(18000, 3, 2000); }
+initEKLogo();
+setInterval(() => {initEKLogo(); }, 18000);
 
 // minimise logo on scroll
 const textLogo = document.getElementById('text1451');

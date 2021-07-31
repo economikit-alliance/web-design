@@ -190,6 +190,3 @@ window.randomizeEKLogo = function(
   .duration(transitionDuration)
   .attr('path', path2InstructionsNext);
 };
-
-// randomise first display
-randomizeEKLogo();
