@@ -25,3 +25,6 @@ function checkScroll (e) {
 
   oldScroll(e);
 }
+checkScroll();
+logo.classList.add('inited');  // enables CSS transitions after setting initial state
+window.onscroll = checkScroll;
