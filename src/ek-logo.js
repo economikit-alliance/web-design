@@ -81,6 +81,8 @@ function initMotion(el) {
 }
 initMotion(ani1);
 initMotion(ani2);
+ani1.id = 'EKani1';
+ani2.id = 'EKani2';
 
 e.appendChild(ani1);
 i1.appendChild(ani2);
@@ -169,10 +171,18 @@ window.randomizeEKLogo = function(cycleDuration = 18000, subCycleRepeats = 3) {
   if (cT == 29){cT = 1};
 
   ani1.setAttribute('dur', cycleDuration + 'ms');
-  ani1.setAttribute('path', path1InstructionsNext);
+  select('#EKani1')
+  .attr('path', path1Instructions)
+  .transition()
+  .duration(transitionDuration)
+  .attr('path', path1InstructionsNext);
 
   ani2.setAttribute('dur', Math.floor(cycleDuration / subCycleRepeats) + 'ms');
-  ani2.setAttribute('path', path2InstructionsNext);
+  select('#EKani2')
+  .attr('path', path2Instructions)
+  .transition()
+  .duration(transitionDuration)
+  .attr('path', path2InstructionsNext);
 };
 
 // randomise first display
