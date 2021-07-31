@@ -82,6 +82,7 @@ main section{
 
 #Intro {
   margin-top: 100vh;
+  text-align: center;
 }
 
 #bgIntro, #bgIntroSingle{
