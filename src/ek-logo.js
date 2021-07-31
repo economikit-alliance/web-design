@@ -2,6 +2,8 @@ import { select } from 'd3-selection'
 
 // configuration vars
 const colors = ['#47ebbf','#506ced','#eb4778','#ebcd47'];
+const bboxWidth = 235,
+      bboxHeight = 180;
 const pV =[50, 90, 140];
 
 // helpers
@@ -25,9 +27,9 @@ const logoHTML = document.getElementById('logoHTML');
 let logo = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 let logoG = document.createElementNS("http://www.w3.org/2000/svg", "g");
   logo.setAttribute('id', 'logo-graphic');
-  logo.setAttribute('width', '250');
-  logo.setAttribute('height', '200');
-  logo.setAttribute('viewBox', '0 0 250 200');
+  logo.setAttribute('width', bboxWidth);
+  logo.setAttribute('height', bboxHeight);
+  logo.setAttribute('viewBox', '0 0 ' + bboxWidth + ' ' + bboxHeight);
 
 let gradient1Defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
 let gradient1 = `
