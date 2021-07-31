@@ -1,3 +1,4 @@
+import throttle from './throttle'
 import './main'
 
 // init, then reload logo and colors periodically (synced with animation)
@@ -27,4 +28,4 @@ function checkScroll (e) {
 }
 checkScroll();
 logo.classList.add('inited');  // enables CSS transitions after setting initial state
-window.onscroll = checkScroll;
+window.onscroll = throttle(checkScroll, 200);
