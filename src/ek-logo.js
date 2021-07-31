@@ -46,6 +46,17 @@ let i1 = document.createElementNS("http://www.w3.org/2000/svg", "rect");
 e.id = 'e';
 i1.id = 'i1';
 
+e.setAttribute('cx', `0`);
+e.setAttribute('cy', `0`);
+e.setAttribute('r', '12.7');
+e.setAttribute('fill', 'var(--c2)');
+
+i1.setAttribute('x', `-4.4`);
+i1.setAttribute('y', `-4.4`);
+i1.setAttribute('width', '8.8');
+i1.setAttribute('height', '8.8');
+i1.setAttribute('fill', 'var(--c1)');
+
 let path1ID3 = document.createElementNS("http://www.w3.org/2000/svg", "path");
 let path2ID3 = document.createElementNS("http://www.w3.org/2000/svg", "path");
 
@@ -162,17 +173,6 @@ window.randomizeEKLogo = function(cycleDuration = 18000, subCycleRepeats = 3) {
 
   ani2.setAttribute('dur', Math.floor(cycleDuration / subCycleRepeats) + 'ms');
   ani2.setAttribute('path', path2InstructionsNext);
-
-  e.setAttribute('cx', `0`);
-  e.setAttribute('cy', `0`);
-  e.setAttribute('r', '12.7');
-  e.setAttribute('fill', 'var(--c2)');
-
-  i1.setAttribute('x', `-4.4`);
-  i1.setAttribute('y', `-4.4`);
-  i1.setAttribute('width', '8.8');
-  i1.setAttribute('height', '8.8');
-  i1.setAttribute('fill', 'var(--c1)');
 };
 
 // randomise first display
