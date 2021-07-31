@@ -93,6 +93,12 @@ logo.appendChild(i1);
 
 logoHTML.appendChild(logo);
 
+// grab D3 refs to generated DOM elements
+const path1 = select('#path1ID3'),
+      path2 = select('#path2ID3'),
+      anim1 = select('#EKani1'),
+      anim2 = select('#EKani2');
+
 // setup internal state
 let rPoints = [];
 let rPointsArray =[];
@@ -136,7 +142,7 @@ window.randomizeEKLogo = function(cycleDuration = 18000, subCycleRepeats = 3) {
     S ${rPointsArray[cT + 1][4]},${rPointsArray[cT + 1][5]}
     ${x2},${y2}`;
 
-  select('#path1ID3')
+  path1
   .attr('d', path1Instructions)
   .transition()
   .duration(transitionDuration)
@@ -158,7 +164,7 @@ window.randomizeEKLogo = function(cycleDuration = 18000, subCycleRepeats = 3) {
     S ${rPointsArray[cT + 1][10]},${rPointsArray[cT + 1][11]}
     ${x1},${y1}`;
 
-  select('#path2ID3')
+  path2
   .attr('d', path2Instructions)
   .transition()
   .duration(transitionDuration)
@@ -168,14 +174,14 @@ window.randomizeEKLogo = function(cycleDuration = 18000, subCycleRepeats = 3) {
   if (cT == 29){cT = 1};
 
   ani1.setAttribute('dur', cycleDuration + 'ms');
-  select('#EKani1')
+  anim1
   .attr('path', path1Instructions)
   .transition()
   .duration(transitionDuration)
   .attr('path', path1InstructionsNext);
 
   ani2.setAttribute('dur', Math.floor(cycleDuration / subCycleRepeats) + 'ms');
-  select('#EKani2')
+  anim2
   .attr('path', path2Instructions)
   .transition()
   .duration(transitionDuration)
