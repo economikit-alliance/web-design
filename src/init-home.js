@@ -23,26 +23,42 @@ targets.forEach(target => {
 const textLogo = document.getElementById('text1451');
 const logo = document.getElementById('ek-header');
 
+let fullscreenRedrawTimer;
+
 const oldScroll = window.onscroll || function () {};
 function checkScroll (e) {
+  // large hero mode (at top)
   if (window.scrollY < window.innerHeight * 0.3) {
+    // regenerate frequently
+    if (!fullscreenRedrawTimer) {
+      fullscreenRedrawTimer = setInterval(() => {initEKLogo(); }, 8000);
+    }
+
     textLogo.classList.remove('invisible');
     textLogo.classList.add('visible');
     logo.classList.remove('mini');
     logo.classList.remove('maxi');
     logo.classList.add('mega');
-  } else if(window.scrollY < window.innerHeight) {
-    textLogo.classList.remove('invisible');
-    textLogo.classList.add('visible');
-    logo.classList.remove('mini');
-    logo.classList.add('maxi');
-    logo.classList.remove('mega');
   } else {
-    textLogo.classList.add('invisible');
-    textLogo.classList.remove('visible');
-    logo.classList.add('mini');
-    logo.classList.remove('maxi');
-    logo.classList.remove('mega');
+    // only regenerate when scrolling past headers
+    if (fullscreenRedrawTimer) {
+      clearInterval(fullscreenRedrawTimer);
+      fullscreenRedrawTimer = null;
+    }
+
+    if(window.scrollY < window.innerHeight) {
+      textLogo.classList.remove('invisible');
+      textLogo.classList.add('visible');
+      logo.classList.remove('mini');
+      logo.classList.add('maxi');
+      logo.classList.remove('mega');
+    } else {
+      textLogo.classList.add('invisible');
+      textLogo.classList.remove('visible');
+      logo.classList.add('mini');
+      logo.classList.remove('maxi');
+      logo.classList.remove('mega');
+    }
   }
 
   oldScroll(e);
