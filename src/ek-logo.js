@@ -2,7 +2,7 @@ import { select } from 'd3-selection'
 
 // configuration vars
 const colors = ['#47ebbf','#506ced','#eb4778','#ebcd47'];
-const bboxWidth = 235,
+const bboxWidth = 255,  // :IMPORTANT: must match `svg.ek-text` attributes in HTML
       bboxHeight = 180;
 const pV =[50, 90, 140];
 
@@ -21,15 +21,13 @@ function shuffle(array) {
 
 // find DOM attachment points
 const r = document.querySelector(':root');
-const logoHTML = document.getElementById('logoHTML');
+const logoHTML = document.getElementById('logo-graphic');
 
 // init elements
 let logo = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 let logoG = document.createElementNS("http://www.w3.org/2000/svg", "g");
-  logo.setAttribute('id', 'logo-graphic');
-  logo.setAttribute('width', bboxWidth);
-  logo.setAttribute('height', bboxHeight);
-  logo.setAttribute('viewBox', '0 0 ' + bboxWidth + ' ' + bboxHeight);
+  logo.id = 'graphic-ek';
+  logo.setAttribute('viewBox', '-20 0 ' + bboxWidth + ' ' + bboxHeight);
 
 let gradient1Defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
 let gradient1 = `
