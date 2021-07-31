@@ -2,7 +2,6 @@ import { select } from 'd3-selection'
 
 // configuration vars
 const colors = ['#47ebbf','#506ced','#eb4778','#ebcd47'];
-const transitionDuration = 2000;
 const pV =[50, 90, 140];
 
 // helpers
@@ -119,7 +118,11 @@ for(let rA = 0; rA < 30; rA++){
 }
 
 // define callback for randomising graphic
-window.randomizeEKLogo = function(cycleDuration = 18000, subCycleRepeats = 3) {
+window.randomizeEKLogo = function(
+  cycleDuration = 18000,
+  subCycleRepeats = 3,
+  transitionDuration = 2000
+) {
   shuffle(colors);
   r.style.setProperty('--c1', colors[0]);
   r.style.setProperty('--c2', colors[1]);
