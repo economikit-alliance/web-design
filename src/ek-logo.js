@@ -1,12 +1,17 @@
 import { select } from 'd3-selection'
 
   const colors = ['#47ebbf','#506ced','#eb4778','#ebcd47'];
+  const transitionDuration = 2000;
+  const pV =[50, 90, 140];
 
   let r = document.querySelector(':root');
+
+  // find DOM attachment root
   const logoHTML = document.getElementById('logoHTML');
-  let logo = [];
-  let logoG = [];
-    logo = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+
+  // init elements
+  let logo = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  let logoG = document.createElementNS("http://www.w3.org/2000/svg", "g");
     logo.setAttribute('id', 'logo-graphic');
     logo.setAttribute('width', '250');
     logo.setAttribute('height', '200');
@@ -21,33 +26,39 @@ import { select } from 'd3-selection'
     </radialGradient>`;
 
   logo.appendChild(gradient1Defs);
-
   gradient1Defs.innerHTML = gradient1;
 
-  logoG = document.createElementNS("http://www.w3.org/2000/svg", "g");
-  let pV =[50, 90, 140];
-  
   let e = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-  e.id = 'e';
   let i1 = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+  e.id = 'e';
   i1.id = 'i1';
 
   let path1ID3 = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    path1ID3.id = 'path1ID3';
-    path1ID3.style = 'stroke-width:3px';
-    path1ID3.setAttribute('stroke-linecap', 'round');
-    path1ID3.classList.add(`ek-path`);
-
   let path2ID3 = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    path2ID3.id = 'path2ID3';
-    path2ID3.style = 'stroke-width:3px';
-    path2ID3.setAttribute('stroke-linecap', 'round');
-    path2ID3.setAttribute('stroke-dasharray', '8,8');
-    path2ID3.classList.add(`ek-path`);
+
+  function initPath(el) {
+    el.style = 'stroke-width:3px';
+    el.setAttribute('stroke-linecap', 'round');
+    el.classList.add(`ek-path`);
+  }
+  initPath(path1ID3);
+  initPath(path2ID3);
+  path1ID3.id = 'path1ID3';
+  path2ID3.id = 'path2ID3';
+  path2ID3.setAttribute('stroke-dasharray', '8,8');
 
   let ani1 = document.createElementNS("http://www.w3.org/2000/svg", "animateMotion");
   let ani2 = document.createElementNS("http://www.w3.org/2000/svg", "animateMotion");
 
+  function initMotion(el) {
+    el.setAttribute('repeatCount', 'indefinite');
+    el.setAttribute('keyPoints', '0;1;0');
+    el.setAttribute('keyTimes', '0;0.5;1');
+  }
+  initMotion(ani1);
+  initMotion(ani2);
+
+  // setup internal state
   let rPoints = [];
   let rPointsArray =[];
   let rNextPoints = [];
@@ -65,7 +76,8 @@ import { select } from 'd3-selection'
       rPointsArray[rA].push(rPoints[r]);
     }
   }
-    window.randomizeEKLogo = function(){
+
+    window.randomizeEKLogo = function(cycleDuration = 18000, subCycleRepeats = 3) {
       shuffle(colors);
       r.style.setProperty('--c1', colors[0]);
       r.style.setProperty('--c2', colors[1]);
@@ -93,9 +105,8 @@ import { select } from 'd3-selection'
       select('#path1ID3')
       .attr('d', path1Instructions)
       .transition()
-      .duration(2000)
+      .duration(transitionDuration)
       .attr('d', path1InstructionsNext);
-
 
       let path2Instructions =
         `M ${x2},${y2}
@@ -114,29 +125,20 @@ import { select } from 'd3-selection'
         ${x1},${y1}`;
 
       path2ID3.setAttribute('d', path2InstructionsNext);
-      select('#path2ID3').attr('d', path2Instructions);
       select('#path2ID3')
       .attr('d', path2Instructions)
       .transition()
-      .duration(2000)
+      .duration(transitionDuration)
       .attr('d', path2InstructionsNext);
 
       cT = cT + 1;
       if (cT == 29){cT = 1};
 
-          ani1.setAttribute('dur', '18000ms');
-          ani1.setAttribute('repeatCount', 'indefinite');
+          ani1.setAttribute('dur', cycleDuration + 'ms');
           ani1.setAttribute('path', path1InstructionsNext);
-          ani1.setAttribute('keyPoints', '0;1;0');
-          ani1.setAttribute('keyTimes', '0;0.5;1');
-          e.appendChild(ani1);
 
-          ani2.setAttribute('dur', '6000ms');
-          ani2.setAttribute('repeatCount', 'indefinite');
+          ani2.setAttribute('dur', Math.floor(cycleDuration / subCycleRepeats) + 'ms');
           ani2.setAttribute('path', path2InstructionsNext);
-          ani2.setAttribute('keyPoints', '0;1;0');
-          ani2.setAttribute('keyTimes', '0;0.5;1');
-          i1.appendChild(ani2);
 
           e.setAttribute('cx', `0`);
           e.setAttribute('cy', `0`);
@@ -149,8 +151,12 @@ import { select } from 'd3-selection'
           i1.setAttribute('height', '8.8');
           i1.setAttribute('fill', 'var(--c1)');
 
-    }; randomizeEKLogo();
+    };
 
+    randomizeEKLogo();
+
+    e.appendChild(ani1);
+    i1.appendChild(ani2);
     logo.appendChild(path1ID3);
     logo.appendChild(path2ID3);
     logo.appendChild(e);
