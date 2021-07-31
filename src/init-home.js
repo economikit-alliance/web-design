@@ -1,4 +1,3 @@
-import throttle from './throttle'
 import './main'
 
 // init
@@ -65,4 +64,4 @@ function checkScroll (e) {
 }
 checkScroll();
 setTimeout(() => logo.classList.add('inited'), 500);  // enables CSS transitions after setting initial state
-window.onscroll = throttle(checkScroll, 200);
+window.onscroll = checkScroll;
