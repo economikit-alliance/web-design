@@ -8,7 +8,6 @@ setInterval(() => {initEKLogo(); }, 18000);
 // minimise logo on scroll
 const textLogo = document.getElementById('text1451');
 const logo = document.getElementById('logo-graphic');
-const header = document.getElementById('ek-header');
 
 const oldScroll = window.onscroll || function () {};
 window.onscroll = function (e) {
@@ -17,7 +16,7 @@ window.onscroll = function (e) {
     logo.classList.remove('mini');
     logo.classList.add('maxi');
     textLogo.classList.add('visible');
-  }else if(window.scrollY > 30){
+  }else{
     textLogo.classList.remove('visible');
     logo.classList.add('mini');
     logo.classList.remove('maxi');
