@@ -136,8 +136,6 @@ window.randomizeEKLogo = function(cycleDuration = 18000, subCycleRepeats = 3) {
     S ${rPointsArray[cT + 1][4]},${rPointsArray[cT + 1][5]}
     ${x2},${y2}`;
 
-  path1ID3.setAttribute('d', path1InstructionsNext);
-
   select('#path1ID3')
   .attr('d', path1Instructions)
   .transition()
@@ -160,7 +158,6 @@ window.randomizeEKLogo = function(cycleDuration = 18000, subCycleRepeats = 3) {
     S ${rPointsArray[cT + 1][10]},${rPointsArray[cT + 1][11]}
     ${x1},${y1}`;
 
-  path2ID3.setAttribute('d', path2InstructionsNext);
   select('#path2ID3')
   .attr('d', path2Instructions)
   .transition()
