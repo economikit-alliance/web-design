@@ -24,7 +24,9 @@
 #ek-header.mini .ek-graphic svg {
   margin-left: -10px;
 }
-#ek-header.maxi .ek-graphic svg {
+#ek-header.maxi {
+  width: 20vw;
+  margin-left: 40vw;
 }
 #ek-header.mega {
   width: 60vw;
