@@ -79,6 +79,10 @@ main section{
     grid-column: 2;
 }
 
+main p{
+    line-height: 1.5em;
+}
+
 #Intro {
   margin-top: 40vh;
   margin-bottom: 60vh;
@@ -239,8 +243,6 @@ a{
     color: var(--main);
     text-decoration-thickness: 3px;
     transition: color 250ms;
-    margin-bottom: 0.5em;
-    display: inline-block;
 }
 
 a:hover{ 
