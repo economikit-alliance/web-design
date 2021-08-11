@@ -1,38 +1,40 @@
-#header{
-    z-index: 3;
+#ek-header {
+  position: fixed;
+  z-index: 1;
+  pointer-events: none;
+  width: 255px;
 }
 
-#text-ek{
-    position: fixed;
-    top: 80px;
-    left: 3vw;
-    z-index: 2;
+.ek-text, #graphic-ek {
+  fill: none;
+  filter: drop-shadow(0px 0px 2px rgba(0,0,0,0.3));
+  position: absolute;
 }
-
-#logoHTML{
-    position: fixed;
-    top: 10px;
-    left: calc(3vw + 10px);
+.ek-text, .ek-graphic svg {
+  pointer-events: all;
+  width: 100%;
+  max-height: 100vh;
+  top: 0;
+  left: 0;
+  transition: all 500ms 200ms;
 }
-
-svg{
-    fill: none;
-    filter: drop-shadow(0px 0px 2px rgba(0,0,0,0.3));
+#ek-header.inited {
+  transition: all 500ms 200ms;
+}
+#ek-header.mini .ek-graphic svg {
+  margin-left: -10px;
+}
+#ek-header.maxi {
+  width: 20vw;
+  margin-left: 40vw;
+}
+#ek-header.mega {
+  width: 60vw;
+  margin-left: 20vw;
 }
 
 .ek-path{
     stroke: black;
-}
-.svg1{stroke: black}
-
-.mini{
-    transform: scale(100%) translate(-30px, -5px);
-    transition: transform 500ms 200ms;
-}
-
-.maxi{
-    transform: scale(100%);
-    transition: transform 300ms 200ms;
 }
 
 #path1560{
@@ -79,6 +81,5 @@ svg{
 @media (max-width: 1024px) {
     .mini{
         transform: scale(80%) translate(-55px, -30px);
-        transition: transform 500ms 200ms;
     }
 }

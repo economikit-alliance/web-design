@@ -1,2 +1,4 @@
 node_modules/
-static/script.*
+static/*.js
+static/*.map
+static/nomodule/*

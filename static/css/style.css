@@ -73,14 +73,19 @@ main{
 
 .home-section{
     grid-column: 2;
-    margin-top: 100px;
+    min-height: 100vh;
 }
 
 main section{
     grid-column: 2;
 }
 
-#bgIntro{
+#Intro {
+  margin-top: 100vh;
+  text-align: center;
+}
+
+#bgIntro, #bgIntroSingle{
     background-color: var(--c3);
     transition: background-color 1000ms;
     position: absolute;
@@ -92,19 +97,7 @@ main section{
 }
 
 #bgIntroSingle{
-    background-color: var(--c3);
-    transition: background-color 1000ms;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
     height: 230px;
-    z-index: -1;
-}
-
-#Intro{
-    min-height: calc(93vh - 100px);
-    padding-top: 0;
 }
 
 .icon{ 
@@ -150,8 +143,29 @@ main section{
     display: none;
 }
 
-#header-fallback{
-    opacity: 0;
+.home-section h1, .home-section h2, .home-section h3, .home-section h4 {
+  margin-top: 0em;
+}
+.home-section h1, .home-section h2 {
+  font-family: 'Karrik', sans-serif;
+}
+.home-section h3, .home-section h4 {
+  font-family: 'Rosario', sans-serif;
+}
+.home-section h1 {
+  font-size: clamp(1.6em, 4.5vh, 2.9em);
+  line-height: 1.2em;
+}
+.home-section h2 {
+  text-align: center;
+  line-height: 1.3em;
+  margin-top: 5em;
+}
+.home-section h3 {
+  line-height: 1.3em;
+}
+.home-section h4 {
+  font-size: 1.2em;
 }
 
 h1{
@@ -217,30 +231,6 @@ h1{
     margin: 0 !important;
 }
 
-#Intro h2{
-    margin-top: 0em !important;
-    padding-top: 8vh;
-    font-family: 'Karrik', sans-serif;
-    font-size: clamp(1.6em, 4.5vh, 2.9em); 
-    line-height: 1.2em;
-}
-
-.home-section h3{
-    margin-top: 0em !important;
-    font-family: 'Karrik', sans-serif !important;
-    font-size: 2em !important;
-    line-height: 1.3em;
-    color: var(--c-main);
-    text-align: center;
-}
-
-.home-section h4{
-    margin-top: 0em !important;
-    font-family: 'Rosario', sans-serif;
-    font-size: 1.2em;
-    line-height: 1.3em;
-}
-
 a{ 
     text-decoration-color: var(--c1);
     color: var(--main);
@@ -255,10 +245,8 @@ a:hover{
 }
 
 #main-menu{
-    position: fixed;
-    bottom: 0.5em;
-    right: 0.5em;
-    margin-left: 0.5em;
+    text-align: right;
+    margin: -3em 0 0 0;
 }
 
 #main-menu a{
@@ -270,25 +258,9 @@ a:hover{
     color: var(--main);
 }
 
-#projects{
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    grid-gap: 10px;
-}
-
-#projects a{
-    display: block;
-    width: 100%;
-    height: 160px;
-    border-radius: 90px;
-    background-color: var(--c-main);
-}
-
 footer{
     margin-top: 12em;
     width: 100%;
-    height: 320px;
     background-color: var(--c2);
     transition: background-color 200ms;
 }
@@ -382,16 +354,6 @@ footer{
     grid-row: 4;
     margin-top: 0.5em;
     min-height: 3em;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 500ms;
-}
-
-#postTitle:hover ~ #postDescription{
-    display: block;
-    opacity: 1;
-    height: max-content;
-    pointer-events: all;
 }
 
 #postTags{
@@ -429,6 +391,18 @@ footer{
 
 .invisible{ opacity: 0; }
 
+.visuallyhidden {
+  border: 0;
+  clip-path: inset(50%);
+  display: inline-block;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  width: 1px;
+  white-space: nowrap;
+}
+
 @media (max-width: 720px) {
 
     #postTitle{
@@ -460,9 +434,5 @@ footer{
 
     #postTags a{
         font-size: 0.8em;
-    }
-
-    #postDescription{
-        display: none;
     }
 }

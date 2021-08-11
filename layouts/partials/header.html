@@ -1,5 +1,8 @@
-<header id="top">
-  <svg id='text-ek' width='300px'>
+<a name="top"></a>
+<header id="ek-header" class="{{ if eq $.Type "home" }} mega{{ end }}">
+<a href="{{ "/#top" | relURL }}">
+  <section id='logo-graphic' class='ek-graphic'></section>
+  <svg class="ek-text" viewBox="-10 -72 255 180">
       <g inkscape:label="Layer 1"
          inkscape:groupmode="layer"
          id="layer1"
@@ -70,8 +73,8 @@
         </g>
       </g>
   </svg>
-  <a href="#top"><section id='logoHTML'></section></a>
+</a>
 </header>
-<h1 id="header-fallback">Economikit</h1>
+{{- partial "logo-scripts.html" . -}}
+<h1 class="visuallyhidden">Economikit</h1>
 
-{{- partial "menu.html" . -}}

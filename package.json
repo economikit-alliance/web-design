@@ -3,9 +3,6 @@
   "version": "0.0.1",
   "private": true,
   "description": "Economikit.org, built on Hugo",
-  "main": "static/script.cjs.js",
-  "module": "static/script.esm.js",
-  "browser": "static/script.js",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
