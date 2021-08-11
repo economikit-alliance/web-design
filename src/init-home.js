@@ -46,8 +46,8 @@ function checkScroll (e) {
     }
 
     if(window.scrollY < window.innerHeight) {
-      textLogo.classList.remove('invisible');
-      textLogo.classList.add('visible');
+      textLogo.classList.remove('visible');
+      textLogo.classList.add('invisible');
       logo.classList.remove('mini');
       logo.classList.add('maxi');
       logo.classList.remove('mega');

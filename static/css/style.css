@@ -73,7 +73,6 @@ main{
 
 .home-section{
     grid-column: 2;
-    min-height: 100vh;
 }
 
 main section{
@@ -81,8 +80,11 @@ main section{
 }
 
 #Intro {
-  margin-top: 100vh;
+  margin-top: 40vh;
+  margin-bottom: 60vh;
+  font-size: clamp(1.5em, 3vw, 3em);
   text-align: center;
+  z-index: 2;
 }
 
 #bgIntro, #bgIntroSingle{
@@ -194,7 +196,7 @@ h1{
 }
 
 #singleTitle{
-    margin-top: 210px;
+    margin-top: 400px;
 }
 
 #singleTags li{
@@ -208,9 +210,10 @@ h1{
 
 #previousAndNextPosts{
     position: absolute;
-    width: 40vw;
+    width: 42vw;
     margin-left: 0.5em;
     line-height: 1.5em;
+    margin-top: 210px;
 }
 
 .previous{
@@ -247,6 +250,9 @@ a:hover{
 #main-menu{
     text-align: right;
     margin: -3em 0 0 0;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
 }
 
 #main-menu a{
