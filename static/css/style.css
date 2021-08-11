@@ -239,6 +239,8 @@ a{
     color: var(--main);
     text-decoration-thickness: 3px;
     transition: color 250ms;
+    margin-bottom: 0.5em;
+    display: inline-block;
 }
 
 a:hover{ 
