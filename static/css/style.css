@@ -157,7 +157,7 @@ main section{
 h1{
     font-family: 'Karrik', sans-serif;
     font-size: 2.5em;
-    margin-top: 170px;  
+    margin-top: 150px;  
 }
 
 #content h2,h3{
@@ -172,8 +172,8 @@ h1{
 
 #meta{
     position: absolute;
-    right: 1em;
-    margin-top: 235px !important;
+    right: 0.5em;
+    margin-top: 140px !important;
     padding-top: 0px !important;
     top: 0;
     text-align: right;
@@ -194,8 +194,8 @@ h1{
 
 #previousAndNextPosts{
     position: absolute;
-    width: 45vw;
-    margin-left: 1em;
+    width: 40vw;
+    margin-left: 0.5em;
     line-height: 1.5em;
 }
 
@@ -404,18 +404,13 @@ footer{
 .postTag{
     text-decoration: none;
     border: 0px solid transparent;
-    grid-column: auto;
     cursor: pointer;
     background-color: var(--c1);
     color: black;
     width: max-content;
-    height: 20px;
+    max-width: 160px;
     font-size: 0.9em !important;
-    justify-self: center;
-    text-align: center;
     padding: 0.3em 0.9em 0.4em 0.9em;
-    margin-left: 2px;
-    margin-bottom: 0.2em;
     border-radius: 2em;
     transition: background-color 600ms, color 200ms;
     margin-left: 1vw;
@@ -438,6 +433,13 @@ footer{
 
     #postTitle{
         font-size: 1.5em;
+        grid-row: 1;
+        margin-top: 0px;
+        margin-bottom: 0.2em;
+    }
+
+    #dateANDtagsContainer{
+        grid-row: 2;
     }
 
     #postYear{
@@ -451,14 +453,16 @@ footer{
 
     #postTags{
         margin-top: 12px;
-        display: block;
+        display: inline-block;
         grid-column: 1 / -1;
         padding-left: 0px !important;
     }
 
     #postTags a{
-        break-inside: avoid;
-        line-height: 2.2em;
         font-size: 0.8em;
+    }
+
+    #postDescription{
+        display: none;
     }
 }
