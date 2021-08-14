@@ -129,7 +129,7 @@ function getPathInstructions(xO = 0, yO = 0, xS, yS, xE, yE, setIdx, pointsIdx) 
     ${xE - xO},${yE - yO}`
 }
 
-function applyPathAnim(cycleDuration, transitionDuration, path, ani, anim, xS, yS, xE, yE, setIdx, pointsIdx) {
+function applyPathAnim(cycleDuration, transitionDuration, path, anim, xS, yS, xE, yE, setIdx, pointsIdx) {
   path
     .attr('d', getPathInstructions(0, 0, xS, yS, xE, yE, setIdx, pointsIdx))
     .transition()
@@ -137,10 +137,9 @@ function applyPathAnim(cycleDuration, transitionDuration, path, ani, anim, xS, y
     .attr('d', getPathInstructions(0, 0, xS, yS, xE, yE, setIdx + 1, pointsIdx));
 
   const animStartPath = getPathInstructions(xS, yS, xS, yS, xE, yE, setIdx, pointsIdx);
-  ani.setAttribute('dur', cycleDuration + 'ms');
-  ani.setAttribute('path', animStartPath);
   anim
   .attr('path', animStartPath)
+  .attr('dur', cycleDuration + 'ms')
   .transition()
   .duration(transitionDuration)
   .attr('path', getPathInstructions(xS, yS, xS, yS, xE, yE, setIdx + 1, pointsIdx));
@@ -160,12 +159,12 @@ export function randomizeEKLogo(
 
   applyPathAnim(
     cycleDuration, transitionDuration,
-    path1, ani1, anim1,
+    path1, anim1,
     x1, y1, x2, y2, cT, 0
   );
   applyPathAnim(
     Math.floor(cycleDuration / subCycleRepeats), transitionDuration,
-    path2, ani2, anim2,
+    path2, anim2,
     x2, y2, x1, y1, cT, 6
   );
 
