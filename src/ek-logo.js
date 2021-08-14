@@ -147,7 +147,7 @@ function applyPathAnim(cycleDuration, transitionDuration, path, ani, anim, xS, y
 }
 
 // define callback for randomising graphic
-window.randomizeEKLogo = function(
+export function randomizeEKLogo(
   cycleDuration = 18000,
   subCycleRepeats = 3,
   transitionDuration = 2000
@@ -171,4 +171,4 @@ window.randomizeEKLogo = function(
 
   cT = cT + 1;
   if (cT == 29){cT = 1};
-};
+}

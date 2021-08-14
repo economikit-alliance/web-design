@@ -1,4 +1,4 @@
-import './main'
+import { randomizeEKLogo } from './main'
 
 // init
 function initEKLogo() { randomizeEKLogo(18000, 3, 2000); }

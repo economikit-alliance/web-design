@@ -11,4 +11,4 @@ import 'd3-dispatch'
 import 'd3-timer'
 import 'd3-color'
 
-import './ek-logo'
+export { randomizeEKLogo } from './ek-logo'
