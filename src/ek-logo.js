@@ -117,6 +117,35 @@ for(let rA = 0; rA < 30; rA++){
   }
 }
 
+// helpers for animation internals
+function getPathInstructions(xS, yS, xE, yE, setIdx, pointsIdx) {
+  return `M ${xS},${yS}
+    C 0,0
+    ${rPointsArray[setIdx][pointsIdx]},${rPointsArray[setIdx][pointsIdx + 1]}
+    ${rPointsArray[setIdx][pointsIdx + 2]},${rPointsArray[setIdx][pointsIdx + 3]}
+    S ${rPointsArray[setIdx][pointsIdx + 4]},${rPointsArray[setIdx][pointsIdx + 5]}
+    ${xE},${yE}`
+}
+
+function applyPathAnim(cycleDuration, transitionDuration, path, ani, anim, xS, yS, xE, yE, setIdx, pointsIdx) {
+  const p = getPathInstructions(xS, yS, xE, yE, setIdx, pointsIdx)
+  const pN = getPathInstructions(xS, yS, xE, yE, setIdx + 1, pointsIdx)
+
+  path
+    .attr('d', p)
+    .transition()
+    .duration(transitionDuration)
+    .attr('d', pN);
+
+  ani.setAttribute('dur', cycleDuration + 'ms');
+  ani.setAttribute('path', p);
+  anim
+  .attr('path', p)
+  .transition()
+  .duration(transitionDuration)
+  .attr('path', pN);
+}
+
 // define callback for randomising graphic
 window.randomizeEKLogo = function(
   cycleDuration = 18000,
@@ -129,64 +158,17 @@ window.randomizeEKLogo = function(
   r.style.setProperty('--c3', colors[2]);
   r.style.setProperty('--c4', colors[3]);
 
-  let path1Instructions =
-    `M ${x1},${y1}
-    C 0,0
-    ${rPointsArray[cT][0]},${rPointsArray[cT][1]}
-    ${rPointsArray[cT][2]},${rPointsArray[cT][3]}
-    S ${rPointsArray[cT][4]},${rPointsArray[cT][5]}
-    ${x2},${y2}`;
-
-  let path1InstructionsNext =
-    `M ${x1},${y1}
-    C 0,0
-    ${rPointsArray[cT + 1][0]},${rPointsArray[cT + 1][1]}
-    ${rPointsArray[cT + 1][2]},${rPointsArray[cT + 1][3]}
-    S ${rPointsArray[cT + 1][4]},${rPointsArray[cT + 1][5]}
-    ${x2},${y2}`;
-
-  path1
-  .attr('d', path1Instructions)
-  .transition()
-  .duration(transitionDuration)
-  .attr('d', path1InstructionsNext);
-
-  let path2Instructions =
-    `M ${x2},${y2}
-    C 0,0
-    ${rPointsArray[cT][6]},${rPointsArray[cT][7]}
-    ${rPointsArray[cT][8]},${rPointsArray[cT][9]}
-    S ${rPointsArray[cT][10]},${rPointsArray[cT][11]}
-    ${x1},${y1}`;
-
-  let path2InstructionsNext =
-    `M ${x2},${y2}
-    C 0,0
-    ${rPointsArray[cT + 1][6]},${rPointsArray[cT + 1][7]}
-    ${rPointsArray[cT + 1][8]},${rPointsArray[cT + 1][9]}
-    S ${rPointsArray[cT + 1][10]},${rPointsArray[cT + 1][11]}
-    ${x1},${y1}`;
-
-  path2
-  .attr('d', path2Instructions)
-  .transition()
-  .duration(transitionDuration)
-  .attr('d', path2InstructionsNext);
+  applyPathAnim(
+    cycleDuration, transitionDuration,
+    path1, ani1, anim1,
+    x1, y1, x2, y2, cT, 0
+  );
+  applyPathAnim(
+    Math.floor(cycleDuration / subCycleRepeats), transitionDuration,
+    path2, ani2, anim2,
+    x2, y2, x1, y1, cT, 6
+  );
 
   cT = cT + 1;
   if (cT == 29){cT = 1};
-
-  ani1.setAttribute('dur', cycleDuration + 'ms');
-  anim1
-  .attr('path', path1Instructions)
-  .transition()
-  .duration(transitionDuration)
-  .attr('path', path1InstructionsNext);
-
-  ani2.setAttribute('dur', Math.floor(cycleDuration / subCycleRepeats) + 'ms');
-  anim2
-  .attr('path', path2Instructions)
-  .transition()
-  .duration(transitionDuration)
-  .attr('path', path2InstructionsNext);
 };
