@@ -23,9 +23,18 @@ function shuffle(array) {
 const r = document.querySelector(':root');
 const logoHTML = document.getElementById('logo-graphic');
 
+// setup internal state
+let rPoints = [];
+let rPointsArray =[];
+let rNextPoints = [];
+let cT = 1;
+let x1 = 55;
+let y1 = 92;
+let x2 = 168;
+let y2 = 75;
+
 // init elements
 let logo = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-let logoG = document.createElementNS("http://www.w3.org/2000/svg", "g");
   logo.id = 'graphic-ek';
   logo.setAttribute('viewBox', '-20 0 ' + bboxWidth + ' ' + bboxHeight);
 
@@ -41,20 +50,22 @@ logo.appendChild(gradient1Defs);
 gradient1Defs.innerHTML = gradient1;
 
 let e = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-let i1 = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+let i1 = document.createElementNS("http://www.w3.org/2000/svg", "g");
+let ir = document.createElementNS("http://www.w3.org/2000/svg", "rect");
 e.id = 'e';
 i1.id = 'i1';
 
-e.setAttribute('cx', `0`);
-e.setAttribute('cy', `0`);
+e.setAttribute('cx', x1);
+e.setAttribute('cy', y1);
 e.setAttribute('r', '12.7');
 e.setAttribute('fill', 'var(--c2)');
 
-i1.setAttribute('x', `-4.4`);
-i1.setAttribute('y', `-4.4`);
-i1.setAttribute('width', '8.8');
-i1.setAttribute('height', '8.8');
-i1.setAttribute('fill', 'var(--c1)');
+ir.setAttribute('x', '-4');
+ir.setAttribute('y', '-4');
+ir.setAttribute('width', '8.8');
+ir.setAttribute('height', '8.8');
+ir.setAttribute('fill', 'var(--c1)');
+i1.setAttribute('transform', `translate(${x2},${y2})`);
 
 let path1ID3 = document.createElementNS("http://www.w3.org/2000/svg", "path");
 let path2ID3 = document.createElementNS("http://www.w3.org/2000/svg", "path");
@@ -85,6 +96,7 @@ ani2.id = 'EKani2';
 
 e.appendChild(ani1);
 i1.appendChild(ani2);
+i1.appendChild(ir);
 logo.appendChild(path1ID3);
 logo.appendChild(path2ID3);
 logo.appendChild(e);
@@ -98,16 +110,6 @@ const path1 = select('#path1ID3'),
       anim1 = select('#EKani1'),
       anim2 = select('#EKani2');
 
-// setup internal state
-let rPoints = [];
-let rPointsArray =[];
-let rNextPoints = [];
-let cT = 1;
-let x1 = 55;
-let y1 = 92;
-let x2 = 168;
-let y2 = 75;
-
 //create Array of Arrays with random points
 for(let rA = 0; rA < 30; rA++){
   rPointsArray[rA] = new Array();
@@ -118,32 +120,30 @@ for(let rA = 0; rA < 30; rA++){
 }
 
 // helpers for animation internals
-function getPathInstructions(xS, yS, xE, yE, setIdx, pointsIdx) {
-  return `M ${xS},${yS}
-    C 0,0
-    ${rPointsArray[setIdx][pointsIdx]},${rPointsArray[setIdx][pointsIdx + 1]}
-    ${rPointsArray[setIdx][pointsIdx + 2]},${rPointsArray[setIdx][pointsIdx + 3]}
-    S ${rPointsArray[setIdx][pointsIdx + 4]},${rPointsArray[setIdx][pointsIdx + 5]}
-    ${xE},${yE}`
+function getPathInstructions(xO = 0, yO = 0, xS, yS, xE, yE, setIdx, pointsIdx) {
+  return `M ${xS - xO},${yS - yO}
+    C ${-xO},${-yO}
+    ${rPointsArray[setIdx][pointsIdx] - xO},${rPointsArray[setIdx][pointsIdx + 1] - yO}
+    ${rPointsArray[setIdx][pointsIdx + 2] - xO},${rPointsArray[setIdx][pointsIdx + 3] - yO}
+    S ${rPointsArray[setIdx][pointsIdx + 4] - xO},${rPointsArray[setIdx][pointsIdx + 5] - yO}
+    ${xE - xO},${yE - yO}`
 }
 
 function applyPathAnim(cycleDuration, transitionDuration, path, ani, anim, xS, yS, xE, yE, setIdx, pointsIdx) {
-  const p = getPathInstructions(xS, yS, xE, yE, setIdx, pointsIdx)
-  const pN = getPathInstructions(xS, yS, xE, yE, setIdx + 1, pointsIdx)
-
   path
-    .attr('d', p)
+    .attr('d', getPathInstructions(0, 0, xS, yS, xE, yE, setIdx, pointsIdx))
     .transition()
     .duration(transitionDuration)
-    .attr('d', pN);
+    .attr('d', getPathInstructions(0, 0, xS, yS, xE, yE, setIdx + 1, pointsIdx));
 
+  const animStartPath = getPathInstructions(xS, yS, xS, yS, xE, yE, setIdx, pointsIdx);
   ani.setAttribute('dur', cycleDuration + 'ms');
-  ani.setAttribute('path', p);
+  ani.setAttribute('path', animStartPath);
   anim
-  .attr('path', p)
+  .attr('path', animStartPath)
   .transition()
   .duration(transitionDuration)
-  .attr('path', pN);
+  .attr('path', getPathInstructions(xS, yS, xS, yS, xE, yE, setIdx + 1, pointsIdx));
 }
 
 // define callback for randomising graphic
