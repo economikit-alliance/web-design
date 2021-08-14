@@ -3,6 +3,7 @@
   z-index: 1;
   pointer-events: none;
   width: 255px;
+  transform: translateY(-20px);
 }
 
 .ek-text, #graphic-ek {
@@ -30,6 +31,7 @@
 #ek-header.mega {
   width: 34vw;
   margin-left: 33vw;
+  transform: translateY(0);
 }
 
 .ek-path{
