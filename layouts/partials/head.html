@@ -2,7 +2,13 @@
   <meta charset="utf-8">
   <title>{{ block "title" . }}{{ with .Params.Title }}{{ . }} | {{ end }}economikit{{ end }}</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+
+  <meta property="og:description"
+        content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}We are an allied group of intersectional strategists, ethicists, cultural anthropologists and software creators.{{ end }}{{ end }}" />
+  <!-- <meta property="og:image" content="" /> -->
+  <meta name="description"
+        content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}We are an allied group of intersectional strategists, ethicists, cultural anthropologists and software creators.{{ end }}{{ end }}" />
 
   <link rel="stylesheet" href="{{ "css/style.css" | relURL }}" type="text/css" />
   <link rel="stylesheet" href="{{ "css/logo.css" | relURL }}" type="text/css" />
