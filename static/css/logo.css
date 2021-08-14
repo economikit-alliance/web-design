@@ -24,9 +24,8 @@
 #ek-header.mini .ek-graphic svg {
   margin-left: -10px;
 }
-#ek-header.maxi {
-  width: 24vw;
-  margin-left: 38vw;
+#ek-header.maxi.home {
+  margin-left: calc(50vw - 112px);
 }
 #ek-header.mega {
   width: 34vw;
@@ -79,13 +78,15 @@
 #i1 { fill: var(--c1); }
 
 @media (max-width: 1024px) {
-    .mini{
-        transform: scale(80%) translate(-55px, -30px);
-    }
+  #ek-header.mini, #ek-header.maxi, #ek-header.maxi.home {
+    width: 204px;
+  }
+  #ek-header.maxi.home {
+    margin-left: calc(50vw - 102px);
+  }
 
-    #ek-header.mega {
-        margin-left: calc(50vw - 160px);
-        width: 300px;
-      }
-      
+  #ek-header.mega {
+    margin-left: calc(50vw - 160px);
+    width: 300px;
+  }
 }
