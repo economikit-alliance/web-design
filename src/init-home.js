@@ -12,7 +12,7 @@ const options = {
 };
 
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(initEKLogo);
+  initEKLogo();
 }, options);
 targets.forEach(target => {
   observer.observe(target);
