@@ -9,18 +9,18 @@
     </article>
     <ul id="postList">
         {{ range .Data.Pages }}
-        <li id="toPost">
-            <div id="postYear">{{ .Date.Format "2006" }}</div>
-            <div id="dateANDtagsContainer">
-                <div id="postDate">{{ .Date.Format "Jan 2" }}</div>
-                <ul id="postTags">
+        <li class="toPost">
+            <div class="postYear">{{ .Date.Format "2006" }}</div>
+            <div class="dateANDtagsContainer">
+                <div class="postDate">{{ .Date.Format "Jan 2" }}</div>
+                <ul class="postTags">
                     {{ range (.GetTerms "tags") }}
                         <li><a class="postTag" href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
                     {{ end }}
                 </ul>
             </div>
-            <a id="postTitle" href="{{ .RelPermalink }}">{{ .Title }}</a>
-            <section id="postDescription">
+            <a class="postTitle" href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <section class="postDescription">
                 {{ .Summary }}
             </section>
         </li>
