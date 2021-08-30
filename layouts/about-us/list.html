@@ -1,0 +1,26 @@
+{{ define "main" }}
+<div id="bgList"></div>
+<main id="wrapperList">
+    <article id ="headerList">
+        <header>
+            <h1>{{ .Title }}</h1>
+        </header>
+        {{ .Content }}
+    </article>
+    <ul id="postList">
+        {{ range .Data.Pages }}
+        <li class="bio-section">
+            <a class="postTitle">{{ .Title }}</a>
+            <section class="postDescription">
+                {{ .Content }}
+            </section>
+        </li>
+        {{ end }}
+    </ul>
+</main>
+<style>
+    footer{
+        background-color: var(--c2);
+    }
+</style>
+{{ end }}

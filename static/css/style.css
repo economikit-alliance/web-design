@@ -71,8 +71,19 @@ main{
     grid-gap: 3vw;
 }
 
-.home-section{
+.home-section, .bio-section {
     grid-column: 2;
+}
+
+.bio-section {
+  clear: both;
+  margin: 5em 0;
+}
+
+.bio-section img {
+  max-width: 10em;
+  float: right;
+  margin: 0 0 1em 1em;
 }
 
 main section{
