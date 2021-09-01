@@ -73,6 +73,7 @@ main{
 
 .home-section, .bio-section {
     grid-column: 2;
+    padding: 0em 0.3em;
 }
 
 .bio-section {
