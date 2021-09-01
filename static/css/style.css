@@ -437,39 +437,39 @@ footer{
   main , #wrapperList{
     display: block;
   }
-  #postList, #headerList { margin: 0 10px; }
+  #postList, #headerList { margin: 0 10px 0 0; }
 }
 
 @media (max-width: 720px) {
 
-    #postTitle{
+    .postTitle{
         font-size: 1.5em;
         grid-row: 1;
         margin-top: 0px;
         margin-bottom: 0.2em;
     }
 
-    #dateANDtagsContainer{
+    .dateANDtagsContainer{
         grid-row: 2;
     }
 
-    #postYear{
+    .postYear{
         font-size: 1em;
     }
 
-    #postDate{
+    .postDate{
         font-size: 1em;
         grid-column: 1 / -1;
     }
 
-    #postTags{
+    .postTags{
         margin-top: 12px;
         display: inline-block;
         grid-column: 1 / -1;
         padding-left: 0px !important;
     }
 
-    #postTags a{
+    .postTags a{
         font-size: 0.8em;
     }
 }
