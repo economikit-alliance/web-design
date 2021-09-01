@@ -444,9 +444,17 @@ footer{
     display: block;
   }
   #postList, #headerList { margin: 0 10px 0 0; }
+
+  #Intro{
+      margin-bottom: 50vh;
+  }
 }
 
 @media (max-width: 720px) {
+
+    #Intro{
+        margin-bottom: 45vh;
+    }
 
     .postTitle{
         font-size: 1.5em;
@@ -477,5 +485,12 @@ footer{
 
     .postTags a{
         font-size: 0.8em;
+    }
+}
+
+@media (max-width: 420px) {
+
+    #Intro{
+        margin-bottom: 30vh;
     }
 }
