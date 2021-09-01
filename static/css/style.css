@@ -123,6 +123,7 @@ ul li::marker{
     color: var(--c1);
 }
 
+
 .icon{ 
     height: 0.8em; 
     transition: filter 250ms;
@@ -182,7 +183,7 @@ ul li::marker{
 .home-section h2 {
   text-align: center;
   line-height: 1.3em;
-  margin-top: 5em;
+  margin-top: 3em;
 }
 .home-section h3 {
   line-height: 1.3em;
