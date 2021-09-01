@@ -82,7 +82,7 @@ main{
 }
 
 .bio-section img {
-  max-width: 10em;
+  max-width: 40%;
   float: right;
   margin: 0 0 1em 1em;
 }
