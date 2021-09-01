@@ -208,6 +208,7 @@ h1{
 #content{
     font-size: 1.1em;
     line-height: 1.4em;
+    padding: 0 0.3em;
 }
 
 #meta{
@@ -221,6 +222,7 @@ h1{
 
 #singleTitle{
     margin-top: 400px;
+    padding: 0 0.2em;
 }
 
 #singleTags li{
