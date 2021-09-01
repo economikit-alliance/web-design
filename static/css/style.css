@@ -96,7 +96,7 @@ main p{
 
 #Intro {
   margin-top: 40vh;
-  margin-bottom: 60vh;
+  margin-bottom: 35vh;
   font-size: clamp(1.5em, 4vw, 3em);
   text-align: center;
   z-index: 2;
