@@ -119,6 +119,10 @@ main p{
     height: 230px;
 }
 
+ul li::marker{
+    color: var(--c1);
+}
+
 .icon{ 
     height: 0.8em; 
     transition: filter 250ms;
