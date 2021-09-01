@@ -300,6 +300,7 @@ footer{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: max-content 1fr;
+    margin-top: 120px;
 }
 
 #headerList header h1{
