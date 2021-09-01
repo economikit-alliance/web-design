@@ -283,7 +283,7 @@ a:hover{
     font-size: clamp(1.2em, 2.2vh, 1.5em); 
     margin-left: 1vw;
     line-height: 2.6em;
-    padding: 0.4em 1em 0.5em 1vw;
+    padding: 0.4em 1em 0.5em 0.5vw;
     cursor: pointer;
     color: var(--main);
 }
