@@ -142,9 +142,10 @@ ul li::marker{
 }
 
 .contact{
-    margin-top: 1vw;
+    margin-top: 2vw;
     margin-left: 3vw;
     display: inline-block;
+    margin-bottom: 6vw;
 }
 
 .icon-footer{
