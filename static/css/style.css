@@ -87,6 +87,10 @@ main{
   margin: 0 0 1em 1em;
 }
 
+#about-us{
+    padding: 0 0.2em;
+}
+
 main section{
     grid-column: 2;
 }
