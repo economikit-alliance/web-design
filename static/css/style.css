@@ -82,7 +82,7 @@ main{
 }
 
 .bio-section img {
-  max-width: 40%;
+  max-width: 10em;
   float: right;
   margin: 0 0 1em 1em;
 }
@@ -485,6 +485,10 @@ footer{
 
     .postTags a{
         font-size: 0.8em;
+    }
+
+    .bio-section img {
+        max-width: 40%;
     }
 }
 
